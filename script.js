@@ -25,13 +25,26 @@
 
 const sqr = document.querySelector('.square')
 
-sqr.onclick = function() {
-    if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
-      sqr.style.borderRadius = '100%'
-      sqr.style.backgroundColor = 'yellow'
-    } else {
-      sqr.style.borderRadius = '0'
-      sqr.style.backgroundColor = 'rgb(250, 76, 76)'
-    }
+// sqr.onclick = function() {
+//     if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
+      // sqr.style.borderRadius = '100%'
+      // sqr.style.backgroundColor = 'yellow'
+//     } else {
+//       sqr.style.borderRadius = '0'
+//       sqr.style.backgroundColor = 'rgb(250, 76, 76)'
+//     }
     
-  };
+//   };
+
+
+
+function crl() {
+  if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
+    sqr.style.borderRadius = '100%'
+    sqr.style.backgroundColor = 'yellow'
+  } else {
+    sqr.style.borderRadius = '0'
+    sqr.style.backgroundColor = 'rgb(250, 76, 76)'
+  }
+}
+sqr.addEventListener('click', crl)
