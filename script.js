@@ -1,10 +1,11 @@
-let btn = document.getElementById('b1')
+// let btn = document.getElementById('b1')
 
+// btn.addEventListener('click', text)
 
-btn.addEventListener('click', function(){
-    let container = document.querySelector('.container')
-    container.innerHTML = 'я знаю что такое GitHub';
-})
+// function text(){
+//     const container = document.querySelector('.container')
+//     container.innerHTML = 'я знаю что такое GitHub';
+// }
 
 
 
@@ -20,3 +21,10 @@ btn.addEventListener('click', function(){
 // 1. removeEventListener
 
 // 2. DOM manipulation 
+
+
+const sqr = document.querySelector('.square')
+
+sqr.onclick = function() {
+    sqr.style.borderRadius = '100%'
+  };
