@@ -27,4 +27,5 @@ const sqr = document.querySelector('.square')
 
 sqr.onclick = function() {
     sqr.style.borderRadius = '100%'
+    sqr.style.backgroundColor = 'yellow'
   };
