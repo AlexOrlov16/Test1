@@ -1,5 +1,7 @@
-btn = document.getElementById('b1')
+let btn = document.getElementById('b1')
 
 btn.onclick = function() {
-    alert('я знаю что такое GitHub');
+    let div = document.createElement('div');
+    div.innerHTML = "я знаю что такое GitHub";
+    document.body.append(div);
 };
