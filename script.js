@@ -1,7 +1,22 @@
 let btn = document.getElementById('b1')
 
-btn.onclick = function() {
-    let div = document.createElement('div');
-    div.innerHTML = "я знаю что такое GitHub";
-    document.body.append(div);
-};
+
+btn.addEventListener('click', function(){
+    let container = document.querySelector('.container')
+    container.innerHTML = 'я знаю что такое GitHub';
+})
+
+
+
+
+// let container = document.querySelector('.container')
+
+// container.addEventListener('click', function(){
+//     container.innerHTML = 'я знаю что такое GitHub';
+// })
+
+
+
+// 1. removeEventListener
+
+// 2. DOM manipulation 
