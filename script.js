@@ -23,7 +23,7 @@
 // 2. DOM manipulation 
 
 
-const sqr = document.querySelector('.square')
+// const sqr = document.querySelector('.square')
 
 // sqr.onclick = function() {
 //     if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
@@ -48,10 +48,18 @@ const sqr = document.querySelector('.square')
 //   }
 // }
 
-function crl() {
-  sqr.classList.toggle('circle')
+// function crl() {
+//   sqr.classList.toggle('circle')
+// }
+
+// sqr.addEventListener('click', crl)
+
+const it = document.querySelector('.it')
+
+function out() {
+  let div = document.createElement('div');
+  div.innerHTML = it.value;
+  document.body.append(div);
 }
 
-sqr.addEventListener('click', crl)
-
-
+it.oninput = out
