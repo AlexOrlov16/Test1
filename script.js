@@ -55,11 +55,12 @@
 // sqr.addEventListener('click', crl)
 
 const it = document.querySelector('.it')
+const t1 = document.querySelector('.text1')
+const b1 = document.querySelector('#btn')
 
 function out() {
-  let div = document.createElement('div');
-  div.innerHTML = it.value;
-  document.body.append(div);
+  t1.innerHTML = it.value;
+  document.body.append(t1);
 }
 
-it.oninput = out
+b1.addEventListener('click', out)
