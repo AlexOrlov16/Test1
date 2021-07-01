@@ -7,36 +7,28 @@
 //     container.innerHTML = 'я знаю что такое GitHub';
 // }
 
-
-
-
 // let container = document.querySelector('.container')
 
 // container.addEventListener('click', function(){
 //     container.innerHTML = 'я знаю что такое GitHub';
 // })
 
-
-
 // 1. removeEventListener
 
-// 2. DOM manipulation 
-
+// 2. DOM manipulation
 
 // const sqr = document.querySelector('.square')
 
 // sqr.onclick = function() {
 //     if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
-      // sqr.style.borderRadius = '100%'
-      // sqr.style.backgroundColor = 'yellow'
+// sqr.style.borderRadius = '100%'
+// sqr.style.backgroundColor = 'yellow'
 //     } else {
 //       sqr.style.borderRadius = '0'
 //       sqr.style.backgroundColor = 'rgb(250, 76, 76)'
 //     }
-    
+
 //   };
-
-
 
 // function crl() {
 //   if (sqr.style.backgroundColor === 'rgb(250, 76, 76)') {
@@ -64,7 +56,6 @@
 
 // b1.addEventListener('click', out)
 
-
 // const ip = document.querySelector('.ip')
 // const btn = document.querySelector('.add')
 // const t = [document.querySelector('.t1'),
@@ -74,7 +65,6 @@
 //       document.querySelector('.t5'),
 //       document.querySelector('.t6'),
 //       document.querySelector('.t7'),]
-
 
 // function add() {
 //       if (t[0].innerHTML == '') {
@@ -125,69 +115,152 @@
 //   }
 // }, false);
 
-
-
-let listTodo = [];
-
+let listTodo = localStorage.getItem('list')
+  ? JSON.parse(localStorage.getItem('list'))
+  : [];
 
 const list = document.querySelector('.container2');
+const input = document.querySelector('.input');
+const formClass = document.querySelector('.form-class');
+const ulClass = document.querySelector('.ul-class');
+const completeBtn = document.querySelector('.save');
+const deleteBtn = document.querySelector('.delete');
 
-const input = document.querySelector('.input')
-const btn = document.querySelector('.add')
+showList(listTodo);
 
-function getRandomId() {
-      function getRandom(min, max) {
-      var int = Math.floor(Math.random() * (max - min + 1)) + min;
-    
-      return int.toString(36);
-    }
-    
-    var id = getRandom(0, 1679615);
+formClass.addEventListener('submit', clickPress);
+
+function addTodo(item) {
+  let newList = {
+    name: item,
+    id: (Math.random() * 10000).toFixed(0),
+    completed: false,
+  };
+  listTodo.push(newList);
+
+  formClass.reset();
+  showList(listTodo);
 }
 
-    
+function showList(listTodo) {
+  let html = listTodo
+    .map((item) => {
+      return `<div class='${item.completed ? 'complete' : null}'  id-key='${
+        item.id
+      }'><li class='li-class'>${item.name}</li>
+      <input type='checkbox' class='checkbox' ${
+        item.completed ? 'checked' : null
+      }>
+      <button class="classDeleteBtn">X</button>
+                 
+                  
+                  <hr></div>`;
+    })
+    .join('');
 
-
-
-function addTodo() {
-
-      let newList = {
-            name: `${input.value}`,
-            id: getRandomId,
-            complete: false,
-      }
-      listTodo.push(newList)
-     
-     
+  list.innerHTML = html;
+  console.log(listTodo);
+  localStorage.setItem('list', JSON.stringify(listTodo));
 }
-addTodo();
-
-
-
-function showList() {
-      if (input.value === '') {
-            alert('You must write something!')
-      } else {
-            let test = listTodo.map((item) => {
-                  return `<li type='none'>${input.value}</li>
-                  <input type='checkbox' class='checkbox'>
-                  <button class="btnLi">X</button>
-                  <hr>`
-            })
-            list.innerHTML += test;
-            input.value = ''
-      }
-
-}
-
-
-btn.addEventListener('click', showList)
 
 function clickPress(event) {
-      if (event.keyCode == 13) {
-            showList()
-      }
+  event.preventDefault();
+  if (input.value === '') {
+    alert('Write something!');
+  } else {
+    addTodo(input.value);
+  }
+}
+
+function deleteToDo(listToDoId) {
+  listTodo = listTodo.filter((item) => {
+    return item.id !== listToDoId;
+  });
+  showList(listTodo);
+}
+
+function listComplete(listToDoId) {
+  listTodo = listTodo.map((item) => {
+    if (item.id == listToDoId) {
+      return {
+        name: item.name,
+        id: item.id,
+        completed: !item.completed,
+      };
+    }
+    return item;
+  });
+  showList(listTodo);
+  console.log(listTodo);
+}
+
+const liClass = document.querySelector('.li-class');
+
+function clickEvent(event) {
+  let test = event.target.parentElement;
+  // let test2 = test.previousElementSibling;
+  let getId = test.getAttribute('id-key');
+  // console.log(getId);
+
+  if (event.target.classList.contains('classDeleteBtn')) {
+    deleteToDo(getId);
   }
 
+  if (event.target.classList.contains('checkbox')) {
+    listComplete(getId);
+  }
 
-    
+  // if (event.target.type === 'checkbox') {
+  //   listComplete(getId);
+  // }
+}
+
+// function saveStorage() {
+//   localStorage.setItem('list', JSON.stringify(listTodo));
+// }
+
+function deleteStorage() {
+  listTodo = [];
+  showList(listTodo);
+  localStorage.setItem('list', JSON.stringify(listTodo));
+}
+
+function deleteConfirm() {
+  let conf = confirm('Are you sure you want to delete all data');
+  if (conf == true) {
+    deleteStorage();
+  }
+}
+function getComplete() {}
+// const container = document.querySelector('.container');
+list.addEventListener('click', clickEvent);
+// saveBtn.addEventListener('click', saveStorage);
+deleteBtn.addEventListener('click', deleteConfirm);
+completeBtn.addEventListener('click', getComplete);
+
+// list.addEventListener('click', clickEvent2);
+
+// function clickEvent2(event) {
+//   if (event.target.className != 'checkbox') return;
+
+//   let container3 = event.target.closest('.complete');
+//   container3.classList.toggle('checked');
+// }
+
+// list.addEventListener(
+//   'click',
+//   function (ev) {
+//     if (ev.target.tagName === 'BUTTON') {
+//       deleteToDo(String(listTodo.item.id));
+//     }
+//   },false
+// );
+
+// event target
+// filter
+// join
+// return
+
+//nasledovanie js
+
+// localStorage

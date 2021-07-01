@@ -10,119 +10,164 @@
     background-color: yellow;
 } */
 
+* {
+  font-family: Pompadur, 'Comic Sans MS', cursive;
+}
 .main_container {
-    margin: auto;
+  margin: auto;
 }
 
 body {
-    display: -webkit-box;
+  display: -webkit-box;
 }
 
 h1 {
-    font-family: Pompadur, 'Comic Sans MS', cursive;
-    text-align: center;
-   }
+  text-align: center;
+}
 
 .container {
-    display: -webkit-box;
+  display: -webkit-box;
 }
 
 .add {
-    margin-left: 20px;
-    background-color: rgba(255, 84, 32, 0.986);
-    outline: none;
-    border: 1px solid black; 
-    width: 116px;
-    height: 30px;
-    font-size: 15px;
-    color: white;
+  margin-left: 20px;
+  background-color: rgba(255, 84, 32, 0.986);
+  outline: none;
+  border: 1px solid black;
+  width: 116px;
+  height: 33px;
+  font-size: 15px;
+  color: white;
 }
 
 .add:hover {
-    background-color: white;
-    color: rgba(255, 84, 32, 0.986);
+  background-color: white;
+  color: rgba(255, 84, 32, 0.986);
 }
 
 .input {
-    height: 26px;
-    width: 200px;
-    border: 1px solid;
-    outline: none;
-    padding-left: 5px;
+  height: 30px;
+  width: 200px;
+  border: 1px solid;
+  outline: none;
+  padding-left: 5px;
 }
 
 .container2 {
-    height: 500px;
-    width: 100%;
-    background-color: rgba(255, 84, 32, 0.986);
-    margin-top: 50px;
-    overflow: auto;
-    outline: 1px solid black;
-    outline-offset: -1px;
+  height: 644px;
+  width: 100%;
+  background-color: rgba(255, 84, 32, 0.986);
+  margin-top: 20px;
+  overflow: auto;
+  outline: 1px solid black;
+  outline-offset: -1px;
 }
 
-.container2 div {
-    margin: 20px;
-    background-color: brown;
-    padding: 10px;
-    display: none;
-    border: 1px solid black;
-}
+/* .container2 div {
+  margin: 20px;
+  background-color: brown;
+  padding: 10px;
+  display: none;
+  border: 1px solid black;
+} */
 
-.container2 div.checked {
-    text-decoration: line-through;
-    filter: brightness(80%);
-}
+/* .container2 div.checked {
+  text-decoration: line-through;
+  filter: brightness(50%); */
+/* } */
 
 /* .container2 div:hover {
     filter: brightness(80%);
 } */
 
 .remove-button {
-    font-size: 110%;
-    top: 0px;
-    color: white;
-    right: 10px;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    background: transparent;
+  font-size: 110%;
+  top: 0px;
+  color: white;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  background: transparent;
 }
 
 li {
-    margin: 20px;
-    text-align: center;
-    background-color: white;
-    border: 1px solid black;
-    padding: 4px;
+  margin: 20px;
+  text-align: center;
+  background-color: white;
+  border: 1px solid black;
+  padding: 4px;
+  list-style: none;
 }
 
-.btnLi {
-    position: relative;
-    left: 270px;
-    background-color: transparent;
-    padding: 5px 10px 5px 10px;
-    outline: 1px solid black;
-    outline-offset: -1px;
-    border: none;
+.classDeleteBtn {
+  float: right;
+  margin-right: 20px;
+  background-color: transparent;
+  padding: 5px 10px 5px 10px;
+  outline: 1px solid black;
+  outline-offset: -1px;
+  border: none;
 }
 
-.btnLi:hover {
-    color: white;
-    background-color: red;
-
+.classDeleteBtn:hover {
+  color: white;
+  background-color: red;
 }
 
 .checkbox {
-    position: relative;
-    left: 16px;
+  position: relative;
+  left: 16px;
 }
 
 .checkbox.checked {
-    text-decoration: line-through;
-    filter: brightness(80%);
+  text-decoration: line-through;
+  filter: brightness(80%);
+}
+
+.complete {
+  background-color: rgba(255, 84, 32, 0.986);
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.delete {
+  margin-top: 20px;
+  background-color: rgba(255, 84, 32, 0.986);
+  outline: none;
+  border: 1px solid black;
+  width: 116px;
+  height: 40px;
+  font-size: 15px;
+  color: white;
+  float: right;
+}
+
+.delete:hover {
+  background-color: white;
+  color: rgba(255, 84, 32, 0.986);
+}
+
+/* .localStorage {
+  text-align: center;
+} */
+
+.save {
+  margin-top: 20px;
+  background-color: rgba(255, 84, 32, 0.986);
+  outline: none;
+  border: 1px solid black;
+  width: 116px;
+  height: 40px;
+  font-size: 15px;
+  color: white;
+}
+
+.save:hover {
+  background-color: white;
+  color: rgba(255, 84, 32, 0.986);
 }
