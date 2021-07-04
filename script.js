@@ -231,7 +231,13 @@ function deleteConfirm() {
     deleteStorage();
   }
 }
-function getComplete() {}
+function getComplete() {
+  JSON.parse(localStorage.getItem('list'));
+  listTodo = listTodo.filter((item) => {
+    return item.completed !== true;
+  });
+  showList(listTodo);
+}
 // const container = document.querySelector('.container');
 list.addEventListener('click', clickEvent);
 // saveBtn.addEventListener('click', saveStorage);
