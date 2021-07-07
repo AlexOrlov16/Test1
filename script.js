@@ -231,6 +231,12 @@ function deleteConfirm() {
     deleteStorage();
   }
 }
+function completeConfirm() {
+  let conf = confirm('Are you sure?');
+  if (conf == true) {
+    getComplete();
+  }
+}
 function getComplete() {
   JSON.parse(localStorage.getItem('list'));
   listTodo = listTodo.filter((item) => {
@@ -242,7 +248,7 @@ function getComplete() {
 list.addEventListener('click', clickEvent);
 // saveBtn.addEventListener('click', saveStorage);
 deleteBtn.addEventListener('click', deleteConfirm);
-completeBtn.addEventListener('click', getComplete);
+completeBtn.addEventListener('click', completeConfirm);
 
 // list.addEventListener('click', clickEvent2);
 
