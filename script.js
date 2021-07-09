@@ -203,7 +203,10 @@ function clickEvent(event) {
   // console.log(getId);
 
   if (event.target.classList.contains('classDeleteBtn')) {
-    deleteToDo(getId);
+    let conf = confirm('Are you sure?');
+    if (conf == true) {
+      deleteToDo(getId);
+    }
   }
 
   if (event.target.classList.contains('checkbox')) {
